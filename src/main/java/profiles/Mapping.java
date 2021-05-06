@@ -1,38 +1,28 @@
 package profiles;
 
-
 //managen von Daten
 
 public class Mapping {
 
 	private String redCapId;
-	private String serverId;
+	private String valueSystem;
+	private String valueCode;
 	
 	public Mapping()
 	{
 		
 	}
 	
-	public Mapping(String redCapId, String serverId_lokal, String serverId_global) {
+	public Mapping(String redCapId, String valueSystem, String valueCode) {
 		this.redCapId = redCapId;
-		this.redCapId = serverId;
-		//this.serverId = MALE;
+		this.valueSystem = valueSystem;
+		this.valueCode = valueCode;
 	}
 	
-	public String getRedCapId() {
-		return redCapId;
-	}
-
-	public void setRedCapId(String redCapId) {
-		this.redCapId = redCapId;
-	}
-
-	public String getServerId() {
-		return serverId;
-	}
-
-	public void setServerId(String serverId) {
-		this.serverId = serverId;
+	public Mapping(String redCapId, String completeID) {
+		// redcap id speichern
+		// String teilen
+		// teile abspeichern
 	}
 	
 	public enum AdministrativeGender {
@@ -56,5 +46,31 @@ public class Mapping {
          * added to help the parsers
          */
         NULL;
+	}
+
+
+
+	public String getRedCapId() {
+		return redCapId;
+	}
+
+	public void setRedCapId(String redCapId) {
+		this.redCapId = redCapId;
+	}
+
+	public String getValueSystem() {
+		return valueSystem;
+	}
+
+	public void setValueSystem(String valueSystem) {
+		this.valueSystem = valueSystem;
+	}
+
+	public String getValueCode() {
+		return valueCode;
+	}
+
+	public void setValueCode(String valueCode) {
+		this.valueCode = valueCode;
 	}
 }

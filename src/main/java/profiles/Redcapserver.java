@@ -6,12 +6,12 @@ import java.util.HashMap;
 //Mapping beeinflusst Redcapserver -> Controller class
 
 public class Redcapserver {
-	private Mapping mapping;
-	private ReaderWriter readwrit;
+	private Profile profile;
+	private ReaderWriter readwrite;
 	String nextTime = "";
 
 	public Redcapserver() {
-		mapping = new Mapping();
+		profile = new Profile();
 		einlesen();
 	}
 
@@ -23,13 +23,13 @@ public class Redcapserver {
 	}
 
 	public void saveMapping() {
-		readwrit.writerJSON();
+		readwrite.writerJSON();
 	}
 	
 	// Server daten werden eingelesen
 	private void einlesen() {
 		// methode von ReaderWriter benutzen
-		readwrit.readerJSON();
+		readwrite.readerJSON();
 	}
 	
 	
