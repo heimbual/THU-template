@@ -10,10 +10,19 @@ public class Profile {
 		this.mappings = new HashMap<String, Mapping>();
 	}
 	
-	public void addMapping(Mapping mapping);
+	public void addMapping(Mapping mapping) {
+		
+	}
 	
-	public void deleteMapping(Mapping mapping);
+	public void deleteMapping(Mapping mapping) {
+		
+	}
 	
-	public Mapping getMapping(String redCapID);
+	public Mapping getMapping(String redCapID) {
+		
+		return null;
+	}
+	
+	
 
 }
