@@ -8,29 +8,39 @@ import java.util.HashMap;
 public class Redcapserver {
 	private Profile profile;
 	private ReaderWriter readwrite;
-	String nextTime = "";
 
+	public Redcapserver(String pfad) {
+		profile = new Profile();
+		readwrite= new ReaderWriter(pfad);
+		//einlesen();
+	}
+	
 	public Redcapserver() {
 		profile = new Profile();
-		einlesen();
+		readwrite= new ReaderWriter("*\test.json");
+		//einlesen();
 	}
 
-	public String addMapping() {
-		return nextTime;
-	}
+	//public String addMapping() {
+	//	return nextTime;
+	//}
 
 	public void removeMapping() {
 	}
 
 	public void saveMapping() {
-		readwrite.writerJSON();
+		readwrite.writerJSON(profile);
 	}
 	
 	// Server daten werden eingelesen
 	private void einlesen() {
 		// methode von ReaderWriter benutzen
-		readwrite.readerJSON();
+		readwrite.readerJSON(profile);
 	}
 	
+	public void einlesenCSV(String pfad) {
+		// methode von ReaderWriter benutzen
+		readwrite.readerCSV(pfad);
+	}
 	
 }

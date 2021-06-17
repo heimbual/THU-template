@@ -3,14 +3,13 @@ package model;
 import org.junit.Test;
 
 import profiles.Profile;
-
-
+import profiles.Redcapserver;
 
 public class ProfileTest {
-
-	@Test
-	public void Test() {
-		Profile profile = new Profile();
+	public static void main(String[] args) {
+		Redcapserver rserver= new Redcapserver();
+		//rserver.einlesenCSV("C:\\Users\\irina\\Documents\\GitHub\\redcap\\ihCCOntology_Excerpt.csv");
+		rserver.saveMapping();
 	}
-
+	
 }
