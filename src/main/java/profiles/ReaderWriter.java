@@ -25,11 +25,13 @@ public class ReaderWriter {
 		this.jsonfile = new File(this.pfad);
 	}
 
-	
-	public void readerJSON() {
-		// how to get the parameters? saving in class mapping?
+	public void readerJSONalternative() {
+		
+	}
+	public void readerJSON(Profile profile) {
+		
 		try {
-			Profile profile = gson.fromJson(new FileReader(jsonfile),Profile.class);
+			profile = gson.fromJson(new FileReader(jsonfile),Profile.class);
 		} catch (Exception e) {
 			System.out.println(e);
 		}
@@ -59,7 +61,12 @@ public class ReaderWriter {
 	// save mapping
 	public void writerJSON(Profile profile) {
 		try {
-			gson.toJson(profile, new FileWriter(jsonfile));
+			String jsonString = new Gson().toJson(profile);
+			System.out.println(jsonString);
+			FileWriter writer = new FileWriter(jsonfile);
+			gson.toJson(profile, writer);
+			writer.flush();
+			writer.close();
 		} catch (JsonIOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
