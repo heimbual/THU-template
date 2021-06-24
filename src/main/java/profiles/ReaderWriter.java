@@ -16,22 +16,20 @@ public class ReaderWriter {
 	
 	//use jsonnode, jsonparser etc...
 	private Gson gson;
-	private String pfad;
+	private String path;
 	private final File jsonfile;
 	
-	public ReaderWriter(String pfad) {
+	public ReaderWriter(String path) {
 		this.gson = new Gson();
-		this.pfad=pfad;
-		this.jsonfile = new File(this.pfad);
+		this.path = path;
+		this.jsonfile = new File(this.path);
 	}
-
-	public void readerJSONalternative() {
-		
-	}
+	
 	public void readerJSON(Profile profile) {
-		
 		try {
-			profile = gson.fromJson(new FileReader(jsonfile),Profile.class);
+			String jsonString = new Gson().toJson(profile);
+			System.out.println(jsonString);
+			profile = gson.fromJson(new FileReader(getJsonfile()),Profile.class);
 		} catch (Exception e) {
 			System.out.println(e);
 		}
@@ -63,7 +61,7 @@ public class ReaderWriter {
 		try {
 			String jsonString = new Gson().toJson(profile);
 			System.out.println(jsonString);
-			FileWriter writer = new FileWriter(jsonfile);
+			FileWriter writer = new FileWriter(getJsonfile());
 			gson.toJson(profile, writer);
 			writer.flush();
 			writer.close();
@@ -74,5 +72,9 @@ public class ReaderWriter {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+
+	public File getJsonfile() {
+		return this.jsonfile;
 	}
 }

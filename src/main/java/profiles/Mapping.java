@@ -56,6 +56,14 @@ public class Mapping {
 	public String getRedCapId() {
 		return redCapId;
 	}
+	
+	public String getCompleteID() {
+		return completeID;
+	}
+	
+	public void setCompleteID(String completeID) {
+		this.completeID = completeID;
+	}
 
 	public void setRedCapId(String redCapId) {
 		this.redCapId = redCapId;

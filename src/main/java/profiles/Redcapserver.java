@@ -1,5 +1,7 @@
 package profiles;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.HashMap;
 
 //Mapping vom Reader abhängig
@@ -9,38 +11,30 @@ public class Redcapserver {
 	private Profile profile;
 	private ReaderWriter readwrite;
 
-	public Redcapserver(String pfad) {
+	public Redcapserver(String filename) {
 		profile = new Profile();
-		readwrite= new ReaderWriter(pfad);
-		//einlesen();
-	}
-	
-	public Redcapserver() {
-		profile = new Profile();
-		readwrite= new ReaderWriter("*\test.json");
-		//einlesen();
+		readwrite = new ReaderWriter("./" + filename + ".json");
 	}
 
-	//public String addMapping() {
-	//	return nextTime;
-	//}
-
-	public void removeMapping() {
+	public void initializeFilePath(File jsonfile) {
+		 try {
+			 Runtime.getRuntime().exec("explorer.exe  /select," + jsonfile.getAbsolutePath());
+		} catch (IOException e) {
+			e.printStackTrace();
+			System.out.println(e);
+		}
 	}
 
 	public void saveMapping() {
 		readwrite.writerJSON(profile);
 	}
-	
-	// Server daten werden eingelesen
-	private void einlesen() {
-		// methode von ReaderWriter benutzen
+
+	public void readMapping() {
 		readwrite.readerJSON(profile);
 	}
-	
-	public void einlesenCSV(String pfad) {
-		// methode von ReaderWriter benutzen
+
+	public void readMappingCSV(String pfad) {
 		readwrite.readerCSV(pfad);
 	}
-	
+
 }
