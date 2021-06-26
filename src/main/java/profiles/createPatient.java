@@ -6,7 +6,6 @@ import java.nio.file.spi.FileSystemProvider;
 
 import org.hl7.fhir.r4.model.Enumerations;
 
-import model.ObservationModel;
 
 public class createPatient {
 

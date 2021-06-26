@@ -19,7 +19,7 @@ public class HardcodeReader {
 	public HardcodeReader() {
 		hashmap = new HashMap<String, String>();
 		//mapping = new Mapping("hepatitis_b", "http://sfb125.de/ontology/ihCCApplicationOntology/chronic_hepatitis_b_observation");
-		hashmap.put(mapping.getRedCapId(), mapping.getServerId());
+		//hashmap.put(mapping.getRedCapId(), mapping.getServerId());
 		//hashmap.put("hepatitis_b", "http://sfb125.de/ontology/ihCCApplicationOntology/chronic_hepatitis_b_observation");
 		hashmap.put("hepatitis_c", "http://sfb125.de/ontology/ihCCApplicationOntology/chronic_hepatitis_c_observation");
 		hashmap.put("bilirubin_concentration",

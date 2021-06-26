@@ -1,7 +1,6 @@
 package profiles;
 import org.hl7.fhir.r4.model.Enumerations.AdministrativeGender;
 
-import model.ObservationModel;
 import server.Server;
 
 public class MainProgramm extends Thread {
