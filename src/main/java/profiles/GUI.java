@@ -4,6 +4,7 @@ import profiles.Redcapserver;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.EventQueue;
+import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -23,31 +24,48 @@ import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class GUI extends JFrame {
 	File file;
+	Profile profile;
 	
 	public GUI(){
 		// GUI
 		setTitle("Parameter mit entsprechenden IRI");
-		setSize(440,250);
+		setSize(720,720);
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
+		profile = new Profile();
 		// Layout
 		Container pane = getContentPane();
-		pane.setLayout(null);
+		
+		pane.setLayout(new FlowLayout());
+		
+	
+		Object[][] data = new Object[][]{profile.mappings.keySet().toArray(), profile.mappings.entrySet().toArray()};
+		for(int i = 0; i < data.length;i++) {
+			for (int j = 0; j < data[i].length; j++) {
+				System.out.println(data[i][j] + " ");
+			}
+		}
+		String[] colNames = {"Parameter", "ZugehÃ¶riger Link"};
+		JTable tabelle = new JTable(data, colNames);
+		pane.add(new JScrollPane(tabelle));
+
 		
 		// Buttons
-		JButton upload = new JButton("Datei Auswählen");
+		JButton upload = new JButton("Datei AuswÃ¤hlen");
 		
 		upload.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JFileChooser filechooser = new JFileChooser();
-				int dialog = filechooser.showDialog(getContentPane(), "Datei öffnen");
+				int dialog = filechooser.showDialog(getContentPane(), "Datei Ã¶ffnen");
 				FileFilter filter = new FileNameExtensionFilter("json", "csv");
 				if (dialog == JFileChooser.APPROVE_OPTION)
 				{
@@ -71,6 +89,8 @@ public class GUI extends JFrame {
 				System.exit(0);
 			}
 		});	
+		
+	
 	}
 
 	 public static void main(String[] args) {
@@ -89,87 +109,3 @@ public class GUI extends JFrame {
 		return file;
 	}
 }
-		 
-
-/*
-JComboBox comboBoxListe;
-//JTextField linkAusgeben;
-
-   JFrame meinJFrame = new JFrame();
-   meinJFrame.setTitle("Parameter mit entsprechenden IRI");
-   meinJFrame.setSize(300, 400);
-   meinJFrame.setLocationRelativeTo(null);
-   meinJFrame.setDefaultCloseOperation(EXIT_ON_CLOSE);
-   JPanel panel = new JPanel();
-
-   JLabel frage = new JLabel("Wähle einen Parameter: ");
-   panel.add(frage);
-
-  
-   String comboBoxListe1[] = {"Age", "Height",
-       "Weight", "Anatomical Reconstructibility", "Ascites",
-       "Cholangitis", "Chronic Hepatitis B", "Chronic Hepatitis C",
-       "Cirrhosis", "COPD", "Fatty Liver",
-       "Heart Failure", "Peritoneal Carcinomatosis", "Portal Hypertension",
-       "Renal Failure", "Tumor Observation"}; // usw..
-
-   // Erstellung der Jcomobox mit den Parameter Einträgen
-          
-   JComboBox ParameterAuswahl = new JComboBox(comboBoxListe1);
-
-
-   
-   //JComboBox wird Panel hinzugefügt
-   panel.add(ParameterAuswahl);
-
-   meinJFrame.add(panel);
-   meinJFrame.setVisible(true);
-   
-   //**************/
-   
-//   JTextField linkAusgeben = new JTextField();
-//   if ()
-//   panel.add(linkAusgeben);
-//   meinJFrame.add(panel);
-//   meinJFrame.setVisible(true);
-   
-   
-   //Erstellung eines Textfeldes zur Ausgabe des Links
-  // JPanel p = new JPanel();
-  // p.setSize(1000, 500);
- //  JTextField linkAusgeben = new JTextField();
- //  p.add(linkAusgeben);
-
- //  String text = "";
- //  for (Iterator i = keys.iterator(); i.hasNext();) {
- //  String redCapId = (String) i.next();
- //  String valueCode = (String) map.get(key);
-  // text+=key + "=" + valueCode;
-   //}
-   
-   //	linkAusgeben.setText(text); 
-   
-//	JTextField linkAusgeben = new JTextField();
-//   String s;
-//   Map hash_map;
-//	for (Map.Entry<String, String> set : hash_map.entrySet()) {
-//   System.out.println(set.getKey() + " = " + set.getValue());
-//   If (set.getKey()== redCapId){
-//   S = s+ set.getValue() + „ „;
-//   }
-//   }
-//   linkAusgeben.setText(s);
-//   panel.add(linkAusgeben);
-//   meinJFrame.add(panel);
-//   meinJFrame.setVisible(true);
-
-
-
-	        
-   //mappings.put("gender", new Mapping("gender", "http://sfb125.de/ontology/factorontology/gender"));
-
-	 
-
-	 
-	 
-
