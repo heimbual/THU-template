@@ -22,8 +22,8 @@ public class CategorialObservationModel extends AbstractObservationModel {
         this.observationCode = observationCode;
         this.valueSystem = "http://sfb125.de/ontology/factorontology/";
         if (value) {
-        	this.valueCode = "true_value_specification";
-        } else {
+        	this.valueCode = "true_value_specification"; } 
+        else {
         	this.valueCode = "false_value_specification";
         }
     }

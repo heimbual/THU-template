@@ -14,7 +14,6 @@ import com.google.gson.JsonSyntaxException;
 public class ReaderWriter {
 
 	
-	//use jsonnode, jsonparser etc...
 	private Gson gson;
 	private String path;
 	private final File jsonfile;
@@ -29,8 +28,8 @@ public class ReaderWriter {
 		try {
 			String jsonString = new Gson().toJson(profile);
 			System.out.println(jsonString);
-			profile = gson.fromJson(new FileReader(getJsonfile()),Profile.class);
-		} catch (Exception e) {
+			profile = gson.fromJson(new FileReader(getJsonfile()),Profile.class); }
+		catch (Exception e) {
 			System.out.println(e);
 		}
 	}
@@ -56,7 +55,6 @@ public class ReaderWriter {
 		}
 	}
 
-	// save mapping
 	public void writerJSON(Profile profile) {
 		try {
 			String jsonString = new Gson().toJson(profile);

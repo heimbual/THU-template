@@ -1,5 +1,5 @@
 package profiles;
-//managen von Daten
+
 
 public class Mapping {
 	
@@ -9,29 +9,15 @@ public class Mapping {
 	private String completeID;
 	
 	public Mapping(String redCapId, String completeID) {
-		// redcap id speichern
-// Updated upstream
-		// String teilen -> split methode
-
-		
-		// String teilen
-		
-// Stashed changes
-		// teile abspeichern
+	
 		this.redCapId=redCapId;
-		this.completeID = completeID ;  //funktioniert das so �berhaupt?	
+		this.completeID = completeID ;  	
 	}
 	
 	
-	// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/lastIndexOf
 	public void split(String completeID) {
 		String[] result = completeID.split("/",completeID.lastIndexOf("/"));
 		  
-			//for (String str2: result){
-			   //System.out.println(str2);
-			
-			
-		
 		  valueSystem = result[0]; 
 		  valueCode = result[1];
 		  System.out.println(valueSystem);
@@ -41,15 +27,11 @@ public class Mapping {
 
 	
 	public enum AdministrativeGender {
-        // Male.
-           MALE, 
-        //Female.
+     
+        MALE, 
         FEMALE, 
-        //Other.
         OTHER, 
-        //Unknown.
         UNKNOWN, 
-        //added to help the parsers
         NULL;
 	}
 	

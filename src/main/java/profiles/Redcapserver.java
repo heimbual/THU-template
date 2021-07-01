@@ -4,8 +4,6 @@ import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 
-//Mapping vom Reader abhängig
-//Mapping beeinflusst Redcapserver -> Controller class
 
 public class Redcapserver {
 	private Profile profile;
@@ -18,8 +16,8 @@ public class Redcapserver {
 
 	public void initializeFilePath(File jsonfile) {
 		 try {
-			 Runtime.getRuntime().exec("explorer.exe  /select," + jsonfile.getAbsolutePath());
-		} catch (IOException e) {
+			 Runtime.getRuntime().exec("explorer.exe  /select," + jsonfile.getAbsolutePath()); } 
+		 catch (IOException e) {
 			e.printStackTrace();
 			System.out.println(e);
 		}
